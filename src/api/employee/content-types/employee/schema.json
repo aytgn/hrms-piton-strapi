@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "employees",
+  "info": {
+    "singularName": "employee",
+    "pluralName": "employees",
+    "displayName": "employee",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 30,
+      "minLength": 3
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "salary": {
+      "type": "integer",
+      "required": true
+    },
+    "auth": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::auth.auth",
+      "inversedBy": "employees"
+    },
+    "team": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::team.team",
+      "inversedBy": "employees"
+    },
+    "phone": {
+      "type": "string",
+      "unique": true,
+      "minLength": 9,
+      "maxLength": 20
+    },
+    "address": {
+      "type": "text",
+      "maxLength": 250,
+      "minLength": 20
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "githubUrl": {
+      "type": "string"
+    },
+    "linkedinUrl": {
+      "type": "string"
+    },
+    "project": {
+      "type": "string"
+    }
+  }
+}
